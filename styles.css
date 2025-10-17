@@ -1,0 +1,248 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 10px;
+}
+:root{
+  --light-black: rgb(50,50,50);
+  --black: rgb(0,0,0);
+  --light-white: rgb(200,250,250);
+  --header-bg: rgb(255,255,255,0.5);
+  --header-font: "Press Start 2P", system-ui;
+}
+body{
+  background-color: black;
+  color: var(--light-white);
+  text-align: center;
+  width: 100%;
+  height: 100vh;
+}
+#container{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 3rem;
+}
+#editor-container{
+  background-color: var(--light-black);
+  height: 100vh;
+  border-radius: 1rem 0 0 1rem;
+  border: 0.5rem ridge var(--light-white);
+  transition: width 0.5s ease-in-out;
+}
+#editor-container header *{
+    font-size: 3rem;
+}
+.editor-expand{
+  width: 100%;
+  transition: width 10s ease-in-out;
+}
+.editor-collapse{
+  width: 50%;
+  transition: width 10s ease-in-out;
+}
+#preview{
+  background-color: var(--light-black);
+  height: 100vh;
+  border-radius: 0 1rem 1rem 0;
+  border: 0.5rem ridge var(--light-white);
+  transition: width 0.5s ease-in-out;
+}
+#preview header *{
+    font-size: 3rem;
+}
+.preview-collapse{
+  width: 50%;
+}
+.preview-expand{
+  width: 100%;
+}
+header{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 40px;
+  background-color: var(--header-bg);
+  justify-content: space-between;
+}
+.flex-row{
+  display: flex;
+  align-items: center;
+}
+.expand{
+  margin-right: 0.5rem;
+  font-weight: bold;
+  color: white;
+}
+.expand:hover{
+  color: var(--light-black);
+  transition: font-size 0.1s ease-in-out;
+  cursor: pointer;
+}
+.collapse{
+  margin-right: 0.5rem;
+  font-weight: bold;
+}
+.collapse:hover{
+  color: var(--light-black);
+  transition: font-size 0.1s ease-in-out;
+  cursor: pointer;
+}
+textarea{
+  width: 100%;
+  height: calc(100% - 40px);
+  background-color: var(--light-black);
+  color: white;
+  font-size: 3rem;
+  resize: none;
+  caret-color: var(--light-white);
+  padding: 1rem;
+  animation: caretBlink 0.8s steps(1) infinite;
+
+}
+@keyframes caretBlink {
+  0% {
+    caret-color: var(--light-white);
+  }
+  25%{
+    caret-color: blue;
+  }
+  50% {
+    caret-color: var(--light-white);
+  }
+  75%{
+    caret-color: blue;
+  }
+  100% {
+    caret-color: var(--light-white);
+  }
+}
+.default-cursor{
+  cursor: default;
+}
+textarea::placeholder{
+  color: rgb(100,100,100);
+  font-size: 2rem;
+}
+#output{
+  text-align: left;
+  padding: 1rem;
+  color: white;
+}
+#output *{
+  font-size: 3rem;
+  position: relative;
+  box-sizing: border-box;
+  text-align: left;
+}
+#output pre{
+  background-color: rgb(250,250,250);
+  padding: 1rem;
+  border-radius: 1rem;
+  margin: 5rem 0;
+  color: red;
+}
+#output code{
+  background-color: rgb(250,250,250);
+  padding: 0.5rem;
+  margin: 10rem 0;
+  border-radius: 1rem;
+}
+#my-header{
+  font-family: var(--header-font);
+  background-color: var(--light-white);
+  margin: 3rem auto 0 auto;
+  text-align: center;
+  align-items: center;
+  padding: 5rem;
+  color: var(--light-black); 
+}
+#my-header h1{
+  font-size: 3rem;
+}
+#output-container{
+  overflow-y: auto;
+  height: calc(100% - 40px);
+  text-align: left;
+}
+blockquote{
+  background-color: white;
+  color: black;
+  border-left: 2rem solid var(--light-white);
+  padding: 1rem;
+}
+
+#output h1{
+    font-size: 5rem;
+}
+#output h2{
+    font-size: 4.5rem;
+}
+#output h3{
+    font-size: 4rem;
+}
+#output h4{
+    font-size: 3.5rem;
+}
+#output h5{
+    font-size: 3rem;
+}
+#output h6{
+    font-size: 2.5rem;
+}
+#output a{
+    color: rgb(100,150,250);
+    text-decoration: underline;
+}
+#output a:hover{
+    color: rgb(50,100,200);
+}
+#output ul{
+    list-style-type: square;
+    margin-left: 2rem;
+}
+#output ol{
+    list-style-type: decimal;
+    margin-left: 2rem;
+}
+#output img{
+    max-width: 100%;
+    height: auto;
+}
+#output table{
+    border-collapse: collapse;
+    width: 100%;
+    margin: 2rem 0;
+}
+#output th, #output td{
+    border: 1px solid var(--light-black);
+    padding: 1rem;
+    text-align: left;
+}
+#output th{
+    background-color: var(--light-white);
+    color: var(--light-black);
+}
+#output tr:nth-child(even){
+    background-color: rgb(230,230,230);
+}
+#output tr:nth-child(odd){
+    background-color: rgb(250,250,250);
+}
+
+textarea::-webkit-scrollbar,#output-container::-webkit-scrollbar {
+  width: 12px;
+}
+
+textarea::-webkit-scrollbar-track, #output-container::-webkit-scrollbar-track {
+  background: var(--light-white);
+}
+
+textarea::-webkit-scrollbar-thumb, #output-container::-webkit-scrollbar-thumb {
+  background-color: black;
+  border-radius: 6px;
+  border: 3px solid var(--light-white);
+}
+
